@@ -3,7 +3,7 @@ import time
 import os
 import getpass
 
-SERVER = "https://你的-render網址"
+SERVER = "https://cyber-security-lab-fvy8.onrender.com"
 
 client_id = getpass.getuser() + "_" + str(os.getpid())
 
