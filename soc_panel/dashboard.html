@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SOC Panel</title>
+</head>
+<body>
+
+<h1>🛡️ SOC Dashboard</h1>
+
+<button onclick="setCmd('info')">取得 Client 資訊</button>
+
+<pre id="output"></pre>
+
+<script>
+const SERVER = "https://你的-render網址";
+
+function setCmd(cmd){
+    fetch(SERVER + "/set_command?cmd=" + cmd);
+}
+
+async function loadClients(){
+    let res = await fetch(SERVER + "/clients");
+    let data = await res.json();
+    document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+}
+
+setInterval(loadClients, 3000);
+</script>
+
+</body>
+</html>
